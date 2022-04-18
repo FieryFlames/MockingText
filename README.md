@@ -5,5 +5,5 @@
 <div align='center'>
    <h3>mockify</h3>
 
-   A PluGiN fOr EnMiTy<br />
+   a PlUgIn FoR eNmItY<br />
 </div>

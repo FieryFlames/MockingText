@@ -39,8 +39,8 @@ const mockify: Plugin = {
       name: "mock",
       displayName: "mock",
 
-      description: "eXamPlE tExT",
-      displayDescription: "eXamPlE tExT",
+      description: "eXaMpLe TeXt",
+      displayDescription: "eXaMpLe TeXt",
 
       type: ApplicationCommandType.Chat,
       inputType: ApplicationCommandInputType.BuiltInText,
