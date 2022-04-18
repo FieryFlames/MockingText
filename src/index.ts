@@ -1,6 +1,32 @@
 import { ApplicationCommandInputType, ApplicationCommandOptionType, ApplicationCommandType, Command, EnmitySectionID } from "enmity-api/commands";
 import { Plugin, registerPlugin } from "enmity-api/plugins";
 
+function isLetter(c) {
+  return c.toLowerCase() != c.toUpperCase();
+}
+
+function mock_(str) {
+  var lastChar = false;
+  const chars = str.split('');
+  var mocked = "";
+
+  for (let i = 0; i < str.length; i++) {
+    if (isLetter(chars[i])) {
+      if (!lastChar) {
+        mocked += chars[i].toUpperCase();
+        lastChar = !lastChar
+      } else {
+        mocked += chars[i].toLowerCase();
+        lastChar = !lastChar
+      }
+    } else {
+      mocked += chars[i]
+    }
+  }
+  
+  return mocked
+}
+
 const mockify: Plugin = {
   name: "mockify",
   commands: [],
@@ -32,10 +58,8 @@ const mockify: Plugin = {
 
       execute: function (args, message) {
         const text = args[0].value;
-        const mockedText = text.split('').map(c => Math.random() < 0.5 ? c.toUpperCase() : c.toLowerCase()).join('');
-
         return {
-          content: mockedText
+          content: mock_(text)
         }
       }
     }
